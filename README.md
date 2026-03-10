@@ -100,8 +100,8 @@ Ensure you have the following receivers declared in your `AndroidManifest.xml` i
 Add the plugin to your `pubspec.yaml` dependencies:
 ```yaml
 dependencies:
-  emi_locker_plugin:
-    path: path/to/emi_locker_plugin
+  mobile_phone_blocker: # latest
+
 ```
 
 Import the package in your dart files:
