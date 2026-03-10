@@ -1,4 +1,4 @@
-package com.example.emi_locker_plugin
+package com.emi.locker
 
 import android.app.admin.DeviceAdminReceiver
 

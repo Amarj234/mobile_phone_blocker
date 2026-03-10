@@ -1,4 +1,4 @@
-# emi_locker_plugin
+# Mobile_Phone_Blocker
 
 A Flutter plugin designed to lock and secure Android devices. It leverages Android `DevicePolicyManager` to restrict user actions, disable the status bar, and enter kiosk mode. 
 
@@ -66,6 +66,34 @@ This method is recommended for bulk deployment or when ADB is not available.
 
 > [!NOTE]  
 > Ensure the `PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION` points to your actual APK and `PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM` is the BASE64 SHA256 of your APK.
+
+### Method 3: Manual Manifest Configuration
+Ensure you have the following receivers declared in your `AndroidManifest.xml` inside the `<application>` tag:
+
+```xml
+<receiver
+    android:name="com.example.emi_locker_plugin.BootReceiver"
+    android:exported="true">
+    <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+    </intent-filter>
+</receiver>
+
+<receiver
+    android:name="com.example.emi_locker_plugin.MyDeviceAdminReceiver"
+    android:permission="android.permission.BIND_DEVICE_ADMIN"
+    android:exported="true">
+    <meta-data
+        android:name="android.app.device_admin"
+        android:resource="@xml/device_admin_receiver" />
+    <intent-filter>
+        <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+    </intent-filter>
+</receiver>
+```
+
+> [!IMPORTANT]
+> Change the `android:name` attributes to match the package name used in your plugin (e.g., `com.emi.locker.BootReceiver` if you refactored it).
 
 ## Usage
 

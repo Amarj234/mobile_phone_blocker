@@ -1,4 +1,4 @@
-package com.example.emi_locker_plugin
+package com.emi.locker
 
 import android.app.Activity
 import android.app.admin.DevicePolicyManager
@@ -13,14 +13,14 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-class EmiLockerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
+class MobilePhoneBlockerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     private lateinit var channel: MethodChannel
     private var activity: Activity? = null
     private var dpm: DevicePolicyManager? = null
     private var adminComponent: ComponentName? = null
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "emi_locker/device_control")
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "mobile_phone_blocker")
         channel.setMethodCallHandler(this)
         val context = flutterPluginBinding.applicationContext
         dpm = context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager

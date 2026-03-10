@@ -1,7 +1,8 @@
-name: emi_locker_plugin
-description: "A new Flutter plugin project."
+name: mobile_phone_blocker
+description: Mobile Phone Blocker
 version: 0.0.1
-homepage:
+homepage: https://amarj234.github.io/
+repository: https://github.com/Amarj234/mobile_phone_blocker.git
 
 environment:
   sdk: ^3.11.1
@@ -36,10 +37,10 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.emi_locker_plugin
-        pluginClass: EmiLockerPlugin
+        package: com.emi.locker
+        pluginClass: MobilePhoneBlockerPlugin
       ios:
-        pluginClass: EmiLockerPlugin
+        pluginClass: MobilePhoneBlockerPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

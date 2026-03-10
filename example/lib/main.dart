@@ -1,5 +1,5 @@
+import 'package:emi_locker_plugin/emi_locker.dart';
 import 'package:flutter/material.dart';
-import 'package:emi_locker_plugin/emi_locker_plugin.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,8 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: EmiLocker(),
-    );
+    return const MaterialApp(home: EmiLocker());
   }
 }
